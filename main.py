@@ -2,7 +2,8 @@ import os
 
 sysinfo = {
     "username": "",
-    "hostname": ""
+    "hostname": "",
+    "osname": ""
 }
 
 try:
@@ -17,3 +18,11 @@ print(f"{sysinfo.get('username')}@{sysinfo.get('hostname')}")
 for _ in range(len(sysinfo.get("username")) + len(sysinfo.get("hostname")) + 1):
     print("-", end="")
 print()
+
+with open("/etc/os-release") as osname:
+    for line in osname:
+        if line.startswith("PRETTY_NAME=\""):
+            sysinfo["osname"] = line[13:-1]
+            sysinfo["osname"] = sysinfo["osname"].rstrip('"')
+
+print(f"OS: {sysinfo.get("osname")}")
