@@ -6,7 +6,10 @@ def main():
         "hostname": "",
         "os": "",
         "host": "",
-        "kernel": ""
+        "kernel": "",
+        "uptime_hours": 0,
+        "uptime_mins": 0,
+        "uptime": ""
     }
     
     sysinfo["username"] = logic.read_username()
@@ -15,6 +18,16 @@ def main():
     sysinfo["host"] = logic.read_host()
     sysinfo["kernel"] = logic.read_kernel()
     
+    sysinfo["uptime_hours"], sysinfo["uptime_mins"] = logic.read_uptime()
+    if sysinfo["uptime_hours"] > 1:
+        sysinfo["uptime"] = " ".join([sysinfo["uptime"], sysinfo["uptime_hours"], "hours"])
+    elif sysinfo["uptime_hours"] == 1:
+        sysinfo["uptime"] = " ".join([sysinfo["uptime"], "1 hour"])
+    if sysinfo["uptime_mins"] > 1:
+        sysinfo["uptime"] = " ".join([sysinfo["uptime"], str(sysinfo["uptime_mins"]), "mins"])
+    elif sysinfo["uptime_mins"] == 1:
+        sysinfo["uptime"] = " ".join(sysinfo["uptime"], "1 min")
+    
     print(f"{sysinfo['username']}@{sysinfo['hostname']}")
     for _ in range(len(sysinfo["username"]) + len(sysinfo["hostname"]) + 1):
         print("-", end="")
@@ -22,6 +35,7 @@ def main():
     print(f"OS: {sysinfo['os']}")
     print(f"Host: {sysinfo['host']}")
     print(f"Kernel: {sysinfo['kernel']}")
+    print(f"Uptime: {sysinfo['uptime']}")
 
 if __name__ == "__main__":
     main()

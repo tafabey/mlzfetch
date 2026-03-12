@@ -28,3 +28,11 @@ def read_kernel():
         osname.append(osrelease.read().rstrip())
     return " ".join(osname)
             
+def read_uptime():
+    hours = 0
+    minutes = 0
+    with open("/proc/uptime") as uptime:
+        minutes = int(float(uptime.read().split()[0]) / 60.0)
+        hours = int(minutes / 60.0)
+        minutes = int(minutes % 60)
+    return hours, minutes
