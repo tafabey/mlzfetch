@@ -36,3 +36,8 @@ def read_uptime():
         hours = int(minutes / 60.0)
         minutes = int(minutes % 60)
     return hours, minutes
+
+def read_shell():
+    ppid = os.getppid()
+    with open(f"/proc/{ppid}/comm") as comm:
+        return comm.read().strip()

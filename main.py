@@ -9,7 +9,8 @@ def main():
         "kernel": "",
         "uptime_hours": 0,
         "uptime_mins": 0,
-        "uptime": ""
+        "uptime": "",
+        "shell": ""
     }
     
     sysinfo["username"] = logic.read_username()
@@ -27,6 +28,8 @@ def main():
         sysinfo["uptime"] = " ".join([sysinfo["uptime"], str(sysinfo["uptime_mins"]), "mins"])
     elif sysinfo["uptime_mins"] == 1:
         sysinfo["uptime"] = " ".join(sysinfo["uptime"], "1 min")
+
+    sysinfo["shell"] = logic.read_shell()
     
     print(f"{sysinfo['username']}@{sysinfo['hostname']}")
     for _ in range(len(sysinfo["username"]) + len(sysinfo["hostname"]) + 1):
@@ -36,6 +39,7 @@ def main():
     print(f"Host: {sysinfo['host']}")
     print(f"Kernel: {sysinfo['kernel']}")
     print(f"Uptime: {sysinfo['uptime']}")
+    print(f"Shell: {sysinfo['shell']}")
 
 if __name__ == "__main__":
     main()
