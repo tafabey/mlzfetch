@@ -1,4 +1,5 @@
-import logic
+import os
+import platforms.linux as logic
 
 def main():
     sysinfo = {
@@ -21,13 +22,13 @@ def main():
     
     sysinfo["uptime_hours"], sysinfo["uptime_mins"] = logic.read_uptime()
     if sysinfo["uptime_hours"] > 1:
-        sysinfo["uptime"] = " ".join([sysinfo["uptime"], sysinfo["uptime_hours"], "hours"])
+        sysinfo["uptime"] = " ".join([sysinfo["uptime"], str(sysinfo["uptime_hours"]), "hours"]).strip()
     elif sysinfo["uptime_hours"] == 1:
-        sysinfo["uptime"] = " ".join([sysinfo["uptime"], "1 hour"])
+        sysinfo["uptime"] = " ".join([sysinfo["uptime"], "1 hour"]).strip()
     if sysinfo["uptime_mins"] > 1:
-        sysinfo["uptime"] = " ".join([sysinfo["uptime"], str(sysinfo["uptime_mins"]), "mins"])
+        sysinfo["uptime"] = " ".join([sysinfo["uptime"], str(sysinfo["uptime_mins"]), "mins"]).strip()
     elif sysinfo["uptime_mins"] == 1:
-        sysinfo["uptime"] = " ".join(sysinfo["uptime"], "1 min")
+        sysinfo["uptime"] = " ".join(sysinfo["uptime"], "1 min").strip()
 
     sysinfo["shell"] = logic.read_shell()
     
