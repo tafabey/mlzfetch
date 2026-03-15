@@ -1,5 +1,9 @@
-import os
-import platforms.linux as logic
+import sys
+if sys.platform == "linux":
+    import platforms.linux as provider
+else:
+    print("This program only runs on Linux")
+    sys.exit(1)
 
 def main():
     sysinfo = {
@@ -15,13 +19,13 @@ def main():
         "resolution": ""
     }
     
-    sysinfo["username"] = logic.read_username()
-    sysinfo["hostname"] = logic.read_hostname()
-    sysinfo["os"] = logic.read_os()
-    sysinfo["host"] = logic.read_host()
-    sysinfo["kernel"] = logic.read_kernel()
+    sysinfo["username"] = provider.read_username()
+    sysinfo["hostname"] = provider.read_hostname()
+    sysinfo["os"] = provider.read_os()
+    sysinfo["host"] = provider.read_host()
+    sysinfo["kernel"] = provider.read_kernel()
     
-    sysinfo["uptime_hours"], sysinfo["uptime_mins"] = logic.read_uptime()
+    sysinfo["uptime_hours"], sysinfo["uptime_mins"] = provider.read_uptime()
     if sysinfo["uptime_hours"] > 1:
         sysinfo["uptime"] = " ".join([sysinfo["uptime"], str(sysinfo["uptime_hours"]), "hours"]).strip()
     elif sysinfo["uptime_hours"] == 1:
@@ -31,8 +35,8 @@ def main():
     elif sysinfo["uptime_mins"] == 1:
         sysinfo["uptime"] = " ".join(sysinfo["uptime"], "1 min").strip()
 
-    sysinfo["shell"] = logic.read_shell()
-    sysinfo["resolution"] = logic.read_resolution()
+    sysinfo["shell"] = provider.read_shell()
+    sysinfo["resolution"] = provider.read_resolution()
     
     print(f"{sysinfo['username']}@{sysinfo['hostname']}")
     for _ in range(len(sysinfo["username"]) + len(sysinfo["hostname"]) + 1):
