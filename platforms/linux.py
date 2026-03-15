@@ -41,3 +41,12 @@ def read_shell():
     ppid = os.getppid()
     with open(f"/proc/{ppid}/comm", "r") as comm:
         return comm.read().strip()
+
+def read_resolution():
+    full_path = "/sys/class/drm"
+    for folder in os.listdir(full_path):
+        if os.path.exists(f"{full_path}/{folder}/enabled"):
+            with open(f"{full_path}/{folder}/enabled", "r") as enabled:
+                if enabled.readline().strip() == "enabled":
+                    with open(f"{full_path}/{folder}/modes", "r") as modes:
+                        return modes.readline().strip()
