@@ -4,6 +4,7 @@ if sys.platform == "linux":
 else:
     print("This program only runs on Linux")
     sys.exit(1)
+import colors
 
 def main():
     sysinfo = {
@@ -38,16 +39,16 @@ def main():
     sysinfo["shell"] = provider.read_shell()
     sysinfo["resolution"] = provider.read_resolution()
     
-    print(f"{sysinfo['username']}@{sysinfo['hostname']}")
+    print(f"{colors.BOLD}{sysinfo['username']}@{sysinfo['hostname']}{colors.END}")
     for _ in range(len(sysinfo["username"]) + len(sysinfo["hostname"]) + 1):
         print("-", end="")
     print()
-    print(f"OS: {sysinfo['os']}")
-    print(f"Host: {sysinfo['host']}")
-    print(f"Kernel: {sysinfo['kernel']}")
-    print(f"Uptime: {sysinfo['uptime']}")
-    print(f"Shell: {sysinfo['shell']}")
-    print(f"Resolution: {sysinfo['resolution']}")
+    print(f"{colors.BLUE}OS{colors.END}: {sysinfo['os']}")
+    print(f"{colors.BLUE}Host{colors.END}: {sysinfo['host']}")
+    print(f"{colors.BLUE}Kernel{colors.END}: {sysinfo['kernel']}")
+    print(f"{colors.BLUE}Uptime{colors.END}: {sysinfo['uptime']}")
+    print(f"{colors.BLUE}Shell{colors.END}: {sysinfo['shell']}")
+    print(f"{colors.BLUE}Resolution{colors.END}: {sysinfo['resolution']}")
     
 if __name__ == "__main__":
     main()
