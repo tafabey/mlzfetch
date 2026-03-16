@@ -18,7 +18,8 @@ def main():
         "uptime": "",
         "shell": "",
         "resolution": "",
-        "cpu": ""
+        "cpu": "",
+        "memory": ""
     }
     
     sysinfo["username"] = provider.read_username()
@@ -40,6 +41,7 @@ def main():
     sysinfo["shell"] = provider.read_shell()
     sysinfo["resolution"] = provider.read_resolution()
     sysinfo["cpu"] = provider.read_cpu()
+    sysinfo["memory"] = provider.read_memory()
     
     print(f"{colors.BOLD}{sysinfo['username']}@{sysinfo['hostname']}{colors.END}")
     for _ in range(len(sysinfo["username"]) + len(sysinfo["hostname"]) + 1):
@@ -52,6 +54,7 @@ def main():
     print(f"{colors.BLUE}Shell{colors.END}: {sysinfo['shell']}")
     print(f"{colors.BLUE}Resolution{colors.END}: {sysinfo['resolution']}")
     print(f"{colors.BLUE}CPU{colors.END}: {sysinfo['cpu']}")
+    print(f"{colors.BLUE}Memory{colors.END}: {sysinfo['memory']}")
     
 if __name__ == "__main__":
     main()
