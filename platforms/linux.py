@@ -50,3 +50,8 @@ def read_resolution():
                 if enabled.readline().strip() == "enabled":
                     with open(f"{full_path}/{folder}/modes", "r") as modes:
                         return modes.readline().strip()
+def read_cpu():
+    with open("/proc/cpuinfo", "r") as cpuinfo:
+        for line in cpuinfo:
+            if line.startswith("model name"):
+                return line.split(":")[1].strip()
