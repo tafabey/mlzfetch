@@ -1,6 +1,14 @@
 # mlzfetch
 mlzfetch is a minimalist fetch tool for Linux. Written with Python programming language.
 
+## Why mlzfetch?
+I tested both fastfetch and mlzfetch in Fedora Linux with `time` utility and these are the results
+|Tool|Real Time|User Time|Sys Time|
+|---|---|---|---|
+|fastfetch|77ms||55ms|23ms|
+|mlzfetch|27ms|18ms|9ms|
+So, mlzfetch is faster than fastfetch
+
 ## Example output
 ![Screenshot](screenshots/screenshot1.png)
 
