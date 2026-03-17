@@ -15,7 +15,7 @@ cd mlzfetch
 ```
 - Finally, type the install command
 ```
-pip install .
+pip install -e .
 ```
 - Now you can use the program by `mlzfetch` command
 
