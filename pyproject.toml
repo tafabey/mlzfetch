@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mlzfetch"
-version = "1.0.0"
+version = "1.0.1"
 description = "A minimal fetch tool"
 readme = "README.md"
 authors = [{name = "tafabey", email = "211373705+tafabey@users.noreply.github.com"}]
@@ -12,7 +12,9 @@ requires-python = ">=3.6"
 dependencies = []
 
 [tool.setuptools]
-packages = ["src"]
+package-dir = {"" = "src"}
+py-modules = ["main", "colors"]
+packages = ["platforms"]
 
 [project.scripts]
-mlzfetch = "src.main:main"
+mlzfetch = "main:main"

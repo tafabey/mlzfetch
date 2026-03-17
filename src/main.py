@@ -1,10 +1,10 @@
 import sys
 if sys.platform == "linux":
-    from .platforms import linux as provider
+    from platforms import linux as provider
 else:
     print("This program only runs on Linux")
     sys.exit(1)
-from . import colors
+import colors
 
 def main():
     sysinfo = {
