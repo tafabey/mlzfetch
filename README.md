@@ -23,8 +23,13 @@ git clone https://github.com/tafabey/mlzfetch
 cd mlzfetch
 ```
 - Finally, type the install command
-```
+```bash
 pip install .
+```
+- For using distro logos, copy the logos directory (For now, only for Fedora and Pop!_OS)
+```bash
+mkdir -p ~/.local/share/mlzfetch/
+cp -r logos/ ~/.local/share/mlzfetch/
 ```
 - Now you can use the program by `mlzfetch` command
 
