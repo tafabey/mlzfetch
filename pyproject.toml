@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mlzfetch"
-version = "1.0.1"
+version = "1.1.1"
 description = "A minimal fetch tool"
 readme = "README.md"
 authors = [{name = "tafabey", email = "211373705+tafabey@users.noreply.github.com"}]
