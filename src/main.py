@@ -64,12 +64,16 @@ def main():
     infolines.append(f"{colors.BLUE}Memory{colors.END}: {sysinfo['memory']}")
 
     count = 0
-    for line in sysinfo["distro_logo"].splitlines():
-        print(f"{line}\t", end="")
-        try:
-            print(infolines[count])
-        except IndexError:
-            print()
-        count += 1
+    if sysinfo["distro_logo"] is not None:
+        for line in sysinfo["distro_logo"].splitlines():
+            print(f"{line}\t", end="")
+            try:
+                print(infolines[count])
+            except IndexError:
+                print()
+            count += 1
+    else:
+        for line in infolines:
+            print(line)
 if __name__ == "__main__":
     main()
