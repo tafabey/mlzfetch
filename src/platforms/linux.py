@@ -1,4 +1,7 @@
 import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import colors
 
 def read_username():
     try:
@@ -71,3 +74,11 @@ def read_memory():
                 used = memory - available
         return f"{used: .2f} GiB / {memory: .2f} GiB"
     return None
+
+def distro_logo():
+    osname = read_os().strip().split()[0].lower()
+    if os.path.exists(f"/home/{os.getlogin()}/.local/share/mlzfetch/logos/{osname}.txt"):
+        with open(f"/home/{os.getlogin()}/.local/share/mlzfetch/logos/{osname}.txt") as logo:
+            return logo.read().format(**colors.COLORS)
+    else:
+        return None

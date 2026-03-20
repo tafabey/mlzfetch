@@ -19,8 +19,11 @@ def main():
         "shell": "",
         "resolution": "",
         "cpu": "",
-        "memory": ""
+        "memory": "",
+        "distro_logo": ""
     }
+
+    infolines = []
     
     sysinfo["username"] = provider.read_username()
     sysinfo["hostname"] = provider.read_hostname()
@@ -42,19 +45,31 @@ def main():
     sysinfo["resolution"] = provider.read_resolution()
     sysinfo["cpu"] = provider.read_cpu()
     sysinfo["memory"] = provider.read_memory()
+    sysinfo["distro_logo"] = provider.distro_logo()
     
-    print(f"{colors.BOLD}{sysinfo['username']}@{sysinfo['hostname']}{colors.END}")
+    infolines.append(f"\t{colors.BOLD}{sysinfo['username']}@{sysinfo['hostname']}{colors.END}")
+
+    empty_line = ""
     for _ in range(len(sysinfo["username"]) + len(sysinfo["hostname"]) + 1):
-        print("-", end="")
-    print()
-    print(f"{colors.BLUE}OS{colors.END}: {sysinfo['os']}")
-    print(f"{colors.BLUE}Host{colors.END}: {sysinfo['host']}")
-    print(f"{colors.BLUE}Kernel{colors.END}: {sysinfo['kernel']}")
-    print(f"{colors.BLUE}Uptime{colors.END}: {sysinfo['uptime']}")
-    print(f"{colors.BLUE}Shell{colors.END}: {sysinfo['shell']}")
-    print(f"{colors.BLUE}Resolution{colors.END}: {sysinfo['resolution']}")
-    print(f"{colors.BLUE}CPU{colors.END}: {sysinfo['cpu']}")
-    print(f"{colors.BLUE}Memory{colors.END}: {sysinfo['memory']}")
-    
+        empty_line = empty_line + "-"
+
+    infolines.append(f"\t{empty_line}")
+    infolines.append(f"{colors.BLUE}OS{colors.END}: {sysinfo['os']}")
+    infolines.append(f"{colors.BLUE}Host{colors.END}: {sysinfo['host']}")
+    infolines.append(f"{colors.BLUE}Kernel{colors.END}: {sysinfo['kernel']}")
+    infolines.append(f"{colors.BLUE}Uptime{colors.END}: {sysinfo['uptime']}")
+    infolines.append(f"{colors.BLUE}Shell{colors.END}: {sysinfo['shell']}")
+    infolines.append(f"{colors.BLUE}Resolution{colors.END}: {sysinfo['resolution']}")
+    infolines.append(f"{colors.BLUE}CPU{colors.END}: {sysinfo['cpu']}")
+    infolines.append(f"{colors.BLUE}Memory{colors.END}: {sysinfo['memory']}")
+
+    count = 0
+    for line in sysinfo["distro_logo"].splitlines():
+        print(f"{line}\t", end="")
+        try:
+            print(infolines[count])
+        except IndexError:
+            print()
+        count += 1
 if __name__ == "__main__":
     main()
