@@ -26,7 +26,7 @@ cd mlzfetch
 ```bash
 pip install .
 ```
-- For using distro logos, copy the logos directory (For now, only for Fedora and Pop!_OS)
+- For using distro logos, copy the logos directory(For now, only for Fedora and Pop!_OS)
 ```bash
 mkdir -p ~/.local/share/mlzfetch/
 cp -r logos/ ~/.local/share/mlzfetch/
