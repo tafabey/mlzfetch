@@ -66,9 +66,9 @@ def main():
     count = 0
     if sysinfo["distro_logo"] is not None:
         for line in sysinfo["distro_logo"].splitlines():
-            print(f"{line}\t", end="")
+            print(f"{line}", end="")
             try:
-                print(infolines[count])
+                print(f"\t{infolines[count]}")
             except IndexError:
                 print()
             count += 1

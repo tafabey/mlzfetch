@@ -1,0 +1,19 @@
+{BLUE}                  -`                 {END}
+{BLUE}                 .o+`                {END}
+{BLUE}                `ooo/                {END}
+{BLUE}               `+oooo:               {END}
+{BLUE}              `+oooooo:              {END}
+{BLUE}              -+oooooo+:             {END}
+{BLUE}            `/:-:++oooo+:            {END}
+{BLUE}           `/++++/+++++++:           {END}
+{BLUE}          `/++++++++++++++:          {END}
+{BLUE}         `/+++ooooooooooooo/`        {END}
+{BLUE}        ./ooosssso++osssssso+`       {END}
+{BLUE}       .oossssso-````/ossssss+`      {END}
+{BLUE}      -osssssso.      :ssssssso.     {END}
+{BLUE}     :osssssss/        osssso+++.    {END}
+{BLUE}    /ossssssss/        +ssssooo/-    {END}
+{BLUE}  `/ossssso+/:-        -:/+osssso+-  {END}
+{BLUE} `+sso+:-`                 `.-/+oso: {END}
+{BLUE}`++:.                           `-/+/{END}
+{BLUE}.`                                 `/{END}
