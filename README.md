@@ -12,6 +12,7 @@ So, mlzfetch is faster than fastfetch
 
 ## Example output
 ![Screenshot](screenshots/screenshot1.png)
+(Distro icons only available for Fedora, Pop!_OS and Arch)
 
 ## How to install
 - First, clone the repository
@@ -24,12 +25,7 @@ cd mlzfetch
 ```
 - Finally, type the install command
 ```bash
-pip install .
-```
-- For using distro logos, copy the logos directory(For now, only for Fedora and Pop!_OS)
-```bash
-mkdir -p ~/.local/share/mlzfetch/
-cp -r logos/ ~/.local/share/mlzfetch/
+sh install.sh
 ```
 - Now you can use the program by `mlzfetch` command
 
